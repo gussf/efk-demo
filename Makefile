@@ -1,6 +1,8 @@
-setup-cluster:
-	kind delete clusters fluentd-demo
+setup:
 	kind create cluster --name fluentd-demo
+
+teardown:
+	kind delete clusters fluentd-demo
 
 apply:
 	kubectl config use-context kind-fluentd-demo
