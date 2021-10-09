@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fluentd-demo-mysql-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fluentd-demo-mysql-deployment
+  template:
+    metadata:
+      labels:
+        app: fluentd-demo-mysql-deployment
+    spec:
+      containers:
+        - name: mysql
+          image: mysql:latest
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 3306
+          env:
+            - name: MYSQL_USER
+              value: teste
+            - name: MYSQL_ROOT_PASSWORD
+              value: "123"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fluentd-demo-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fluentd-demo-app-deployment
+  template:
+    metadata:
+      labels:
+        app: fluentd-demo-app-deployment
+    spec:
+      containers:
+        - name: fluentd-demo-app
+          image: gussf/fluentd-demo-app
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 9000
