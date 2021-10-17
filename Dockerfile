@@ -10,7 +10,7 @@ RUN go build -o app .
 
 FROM scratch
 
-WORKDIR /usr/local/fluent-demo
+WORKDIR /usr/local/efk-demo
 
 COPY --from=build /go/src/efk-demo/app .
 

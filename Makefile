@@ -24,5 +24,5 @@ kibana:
 	kubectl port-forward service/kibana-kibana 5601
 
 image:
-	docker build -t gussf/efk-demo .
-	docker push gussf/efk-demo
+	docker build -t gussf/efk-demo-app .
+	docker push gussf/efk-demo-app
