@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fluentd-demo-mysql-deployment
+  name: efk-demo-mysql-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: fluentd-demo-mysql-deployment
+      app: efk-demo-mysql-deployment
   template:
     metadata:
       labels:
-        app: fluentd-demo-mysql-deployment
+        app: efk-demo-mysql-deployment
     spec:
       containers:
         - name: mysql
@@ -30,20 +30,20 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fluentd-demo-app-deployment
+  name: efk-demo-app-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: fluentd-demo-app-deployment
+      app: efk-demo-app-deployment
   template:
     metadata:
       labels:
-        app: fluentd-demo-app-deployment
+        app: efk-demo-app-deployment
     spec:
       containers:
-        - name: fluentd-demo-app
-          image: gussf/fluentd-demo-app
+        - name: efk-demo-app
+          image: gussf/efk-demo-app
           resources:
             limits:
               memory: "128Mi"

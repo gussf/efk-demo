@@ -12,10 +12,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: fluentd-demo-svc
+  name: efk-demo-svc
 spec:
   selector:
-    app: fluentd-demo-app
+    app: efk-demo-app
   ports:
     - port: 9000
       targetPort: 9000

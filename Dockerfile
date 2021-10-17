@@ -1,6 +1,6 @@
 FROM golang:1.17 as build
 
-WORKDIR /go/src/fluentd-demo
+WORKDIR /go/src/efk-demo
 
 COPY . .
 
@@ -12,6 +12,6 @@ FROM scratch
 
 WORKDIR /usr/local/fluent-demo
 
-COPY --from=build /go/src/fluentd-demo/app .
+COPY --from=build /go/src/efk-demo/app .
 
 CMD [ "./app" ]

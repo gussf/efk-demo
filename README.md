@@ -1,2 +1,3 @@
-# fluentd-demo
-Getting started with fluentd
+# efk-demo
+Getting started with EFK Stack
+Elastisearch, Fluentd and Kibana
