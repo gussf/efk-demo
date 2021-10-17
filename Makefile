@@ -1,6 +1,7 @@
 setup:
 	kind create cluster --name efk-demo
 	helm repo add elastic https://helm.elastic.co
+	helm repo add fluent https://fluent.github.io/helm-charts
 	helm repo update
 
 teardown:
@@ -10,6 +11,7 @@ apply:
 	kubectl config use-context kind-efk-demo
 	helm install elasticsearch elastic/elasticsearch --values k8s/elastic-values.yaml
 	helm install kibana elastic/kibana
+	helm install fluent fluent/fluentd
 	kubectl apply -f k8s/deployments.yaml
 	kubectl apply -f k8s/services.yaml
 
