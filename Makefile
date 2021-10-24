@@ -11,7 +11,7 @@ apply:
 	kubectl config use-context kind-efk-demo
 	helm install elasticsearch elastic/elasticsearch --values k8s/elastic-values.yaml
 	helm install kibana elastic/kibana
-	helm install fluent fluent/fluentd
+	helm install fluent fluent/fluentd --values k8s/fluentd-values.yaml
 	kubectl apply -f k8s/deployments.yaml
 	kubectl apply -f k8s/services.yaml
 
